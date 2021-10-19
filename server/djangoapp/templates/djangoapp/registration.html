@@ -8,30 +8,28 @@
 </head>
     <body>
         <form action="{% url 'djangoapp:registration' %}" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter Username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password" name="up" required>
-            </div>
-            <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="first_name" class="form-control" aria-describedby="emailHelp" placeholder="Enter First Name" required>
-            </div>
-            <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="last_name" class="form-control" aria-describedby="emailHelp" placeholder="Enter Last Name" required>
-            </div>
-            {% if message %}
-            <div class="alert alert-warning"> 
-                {{ message }}
-            </div>
-            {% endif %}
-            <button class="btn btn-primary" type="submit">Sign up</button> 
-          </form>
+                <div class="container">
+                  <h1>Sign Up</h1>
+                  <hr>
+                  <label for="username"><b>User Name</b></label>
+                  <input type="text" class="form-control" placeholder="Enter User Name: " name="username" required>
+                  <label for="firstname"><b>First Name</b></label>
+                  <input type="text" class="form-control" placeholder="Enter First Name: " name="firstname" required>
+                  <label for="lastname"><b>Last Name</b></label>
+                  <input type="text" class="form-control" placeholder="Enter Last Name: " name="lastname" required>
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" class="form-control" placeholder="Enter Password: " name="psw" required>
+                  {% if message %}
+                  <div class="alert alert-warning"> 
+                      {{ message }}
+                  </div>
+                  {% endif %}
+                  <div>
+                      {% csrf_token %}
+                      <button class="btn btn-primary"  type="submit">Sign Up</button>
+                  </div>
+                </div>
+              </form>
     </body>
 </html>
 {% endblock %}
